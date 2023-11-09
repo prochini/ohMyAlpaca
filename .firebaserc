@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "ohmyalpaca-e5554": {
+      "hosting": {
+        "my-app": [
+          "ohmyalpaca-e5554"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "ohmyalpaca-e5554"
+  }
+}
