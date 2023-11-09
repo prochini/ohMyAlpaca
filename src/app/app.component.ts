@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'my-app';
+  title = 'my-ALPACA';
   value = 3;
   userData!: Observable<any>;
   constructor(private firestore: Firestore) {
@@ -45,4 +45,5 @@ export class AppComponent {
 
     this.userData = collectionData(userProfileCollection);
   }
+
 }
