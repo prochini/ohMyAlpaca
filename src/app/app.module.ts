@@ -10,9 +10,11 @@ import { SliderModule } from 'primeng/slider';
 import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
 import { RatingModule } from 'primeng/rating';
+import { SystemComponent } from './system/system.component';
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    SystemComponent
   ],
   imports: [
     BrowserModule,
