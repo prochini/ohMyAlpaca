@@ -10,6 +10,9 @@ import { SliderModule } from 'primeng/slider';
 import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
 import { RatingModule } from 'primeng/rating';
+import { InputTextModule } from 'primeng/inputtext';
+import { CheckboxModule } from 'primeng/checkbox';
+import { RadioButtonModule } from 'primeng/radiobutton';
 @NgModule({
   declarations: [
     AppComponent
@@ -23,7 +26,10 @@ import { RatingModule } from 'primeng/rating';
     SliderModule,
     ButtonModule,
     CardModule,
-    RatingModule
+    RatingModule,
+    InputTextModule,
+    CheckboxModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]
