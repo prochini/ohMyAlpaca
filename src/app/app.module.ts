@@ -13,9 +13,11 @@ import { RatingModule } from 'primeng/rating';
 import { InputTextModule } from 'primeng/inputtext';
 import { CheckboxModule } from 'primeng/checkbox';
 import { RadioButtonModule } from 'primeng/radiobutton';
+import { SystemComponent } from './system/system.component';
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    SystemComponent
   ],
   imports: [
     BrowserModule,
