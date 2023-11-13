@@ -40,14 +40,15 @@
   <h2>Oh My Alpaca</h2>
   <p>歡迎來到為羊駝愛好者設計的遊戲:</p>
 
-   <a class="card" [routerLink]="[ '/system' ]" routerLinkActive="active">
-      <span>News</span>
-    </a>
-<router-outlet></router-outlet>
+  <a class="card" [routerLink]="[ '/system' ]" routerLinkActive="active">
+    <span>News</span>
+  </a>
+  <router-outlet></router-outlet>
 
   <img src="../assets/picture/Alpaca LOGO.jpg" alt="alpaca-3-svgrepo-com" width="200" height="200" />
 
-  <p-card *ngFor="let data of userData | async" header="{{data.Character}}" subheader="職業 : {{data.Occupation}} 等級 : {{data.Level}}" [style]="{ width: '360px' }">
+  <p-card *ngFor="let data of userData| async " header="{{data.Character}}"
+    subheader="職業 : {{data.Occupation}} 等級 : {{data.Level}}" [style]="{ width: '360px' }">
     <ng-template pTemplate="header">
       <img alt="Card" src="../assets/picture/superalpaca.jpg" />
     </ng-template>
@@ -58,9 +59,9 @@
     <span>
       兇猛指數:
     </span>
-    <p-rating [(ngModel)]="value" [readonly]="true" [cancel]="false"></p-rating>
+    <p-rating [(ngModel)]="data.Star" [readonly]="true" [cancel]="false"></p-rating>
     <ng-template pTemplate="footer">
-<p-button label="Submit" (click)="updateData(data.id)"></p-button>
+      <p-button label="Submit" (click)="updateData(data.id)"></p-button>
 
     </ng-template>
 
@@ -70,7 +71,7 @@
           <i class="pi pi-wrench"></i>
           攻擊力
         </span>
-        <input type="text" pInputText placeholder="Price" />
+        <input [(ngModel)]="data.Attack" type="text" pInputText placeholder="Price" />
         <span class="p-inputgroup-addon">K</span>
       </div>
     </div>
@@ -81,7 +82,7 @@
           <i class="pi pi-heart-fill"></i>
           生命值
         </span>
-        <input type="text" pInputText placeholder="Price" />
+        <input [(ngModel)]="data.HealthPoint" type="text" pInputText placeholder="Price" />
         <span class="p-inputgroup-addon">K</span>
       </div>
     </div>
@@ -92,13 +93,15 @@
         <i class="pi pi-shield"></i>
         防禦力
       </span>
-      <input type="text" pInputText placeholder="Price" />
+      <input [(ngModel)]="data.Defense" type="text" pInputText placeholder="Price" />
       <span class="p-inputgroup-addon">K</span>
+    </div>
+    <div class="p-inputgroup w-full md:w-30rem">
       <span class="p-inputgroup-addon">
         <i class="pi pi-bolt"></i>
         速度值
       </span>
-      <input type="text" pInputText placeholder="Price" />
+      <input [(ngModel)]="data.Speed" type="text" pInputText placeholder="Price" />
       <span class="p-inputgroup-addon">m</span>
 
     </div>
@@ -191,11 +194,11 @@
   <p>新增角色</p>
 
   <form action="" #f="ngForm" (ngSubmit)="addData(f)">
-        Character<input type="text" name="Character" ngModel>
+    Character<input type="text" name="Character" ngModel>
     <br>
-            Occupation<input type="text" name="Occupation" ngModel>
+    Occupation<input type="text" name="Occupation" ngModel>
     <br>
-        Level<input type="number" name="Level" ngModel>
+    Level<input type="number" name="Level" ngModel>
     <br>
     Attack<input type="number" name="Attack" ngModel>
     <br>
@@ -205,9 +208,9 @@
     <br>
     Speed<input type="number" name="Speed" ngModel>
     <br>
-        Star<input type="number" name="Star" ngModel>
+    Star<input type="number" name="Star" ngModel>
     <br>
-        Description<input type="text" name="Description" ngModel>
+    Description<input type="text" name="Description" ngModel>
     <br>
     <button type="submit">save</button>
   </form>
