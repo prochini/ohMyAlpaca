@@ -26,24 +26,22 @@
 
 <div class="content" role="main">
 
-  <div class="p-inputgroup ">
+  <div *ngFor="let p of PlayerData| async" class="p-inputgroup ">
     <label type="button" pButton label="金幣"></label>
-    <input type="text" pInputText placeholder="Money" />
+    <input [(ngModel)]="p.Money" type="number" pInputText placeholder="Money" />
     <label type="button" pButton label="鑽石"></label>
-    <input type="text" pInputText placeholder="Diamond" />
+    <input [(ngModel)]="p.Diamond" type="number" pInputText placeholder="Diamond" />
+    <p-button label="每日簽到" (click)="updateSignIn(p.id,p.Money)" severity="warning"></p-button>
+    <p-button label="鑽石儲值" severity="danger"></p-button>
+
   </div>
 
-  <button class="mt-2" type="button" pButton label="每日簽到"></button>
 
 
   <!-- Resources -->
   <h2>Oh My Alpaca</h2>
   <p>歡迎來到為羊駝愛好者設計的遊戲:</p>
 
-  <a class="card" [routerLink]="[ '/system' ]" routerLinkActive="active">
-    <span>News</span>
-  </a>
-  <router-outlet></router-outlet>
 
   <img src="../assets/picture/Alpaca LOGO.jpg" alt="alpaca-3-svgrepo-com" width="200" height="200" />
 
@@ -171,8 +169,7 @@
             <polygon
               points="10.29,8.44 9.5,6 8.71,8.44 6.25,8.44 8.26,10.03 7.49,12.5 9.5,10.97 11.51,12.5 10.74,10.03 12.75,8.44" />
           </g>
-        </g>ng serve --open
-
+        </g>
       </svg>
       <span>試煉選擇</span>
       <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
@@ -214,7 +211,26 @@
     <br>
     <button type="submit">save</button>
   </form>
+  <hr>
+  <h2>Register Account</h2>
+  <p>會員帳號註冊</p>
 
+  <form action="" #p="ngForm" (ngSubmit)="addPlayer(p)">
+    Account<input type="text" name="Account" ngModel>
+    <br>
+    Password<input type="text" name="Password" ngModel>
+    <br>
+    Email<input type="text" name="Email" ngModel>
+    <br>
+    Money<input type="number" name="Money" ngModel>
+    <br>
+    Diamond<input type="number" name="Diamond" ngModel>
+    <br>
+    Gender<input type="number" name="Gender" ngModel>
+    <br>
+    <button type="submit">送出
+    </button>
+  </form>
 </div>
 
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
